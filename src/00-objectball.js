@@ -217,4 +217,22 @@ function teamColors(teamName) {
     };
 
 console.log(playerStats("Alan Anderson"))
+function bigShoeRebounds() {
+  const { home, away } = gameObject();
+  const allPlayers = { ...home.players, ...away.players };
+  
+  let playerWithBiggestShoe = null;
+  let largestShoeSize = 0;
+  
+  for (const playerName in allPlayers) {
+    const player = allPlayers[playerName];
+    if (player.shoe > largestShoeSize) {
+      largestShoeSize = player.shoe;
+      playerWithBiggestShoe = player;
+    }
+  }
+  
+  return playerWithBiggestShoe.rebounds;
+}
+console.log(bigShoeRebounds())
 
